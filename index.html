@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tareas</title>
     <link rel="stylesheet" href="Diseño.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <h1>Lista</h1>
-        <input type="text" id="taskInput" placeholder="Añade una nueva tarea...">
+        <input type="text" id="taskInput" placeholder="Añade una nueva tarea..." ><i id="enter"class="fas fa-plus-circle"></i>
+        <h3>Estas son tus tareas pendientes</h3>
         <ul id="taskList"></ul>
+       
         <div class="filters">
+          
             <button id="allTasks">Todas</button>
             <button id="activeTasks">Activas</button>
             <button id="completedTasks">Completadas</button>

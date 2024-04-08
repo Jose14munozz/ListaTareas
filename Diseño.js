@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const li = document.createElement('li');
         li.innerHTML = `
             <span>${taskText}</span>
+           
             <button class="complete-btn">Completar</button>
             <button class="delete-btn">Borrar</button>
+            <i class="fas fa-trash de"></i>
         `;
         taskList.appendChild(li);
         li.querySelector('.complete-btn').addEventListener('click', function() {
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Permitir la edición de la tarea al hacer doble clic en el elemento li
         li.addEventListener('dblclick', function() {
             const span = li.querySelector('span');
-            const newText = prompt('Edit task:', span.textContent);
+            const newText = prompt('Editar Tareas:', span.textContent);
             if (newText !== null) {
                 span.textContent = newText;
                 saveTasks(); // Guardar tareas en el almacenamiento local
