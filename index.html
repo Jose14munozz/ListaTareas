@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Definición del tipo de documento y configuraciones -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Lista de Tareas</title>
+    <!-- Enlace a hoja de estilos externa -->
     <link rel="stylesheet" href="Diseño.css">
+    <!-- Enlace a la biblioteca de iconos Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <!-- Contenedor principal -->
     <div class="container">
+        <!-- Título principal -->
         <h1>Lista</h1>
+        <!-- Entrada de texto para añadir nuevas tareas -->
         <input type="text" id="taskInput" placeholder="Añade una nueva tarea..." ><i id="enter"class="fas fa-plus-circle"></i>
+        <!-- Título secundario -->
         <h3>Estas son tus tareas pendientes</h3>
+        <!-- Lista de tareas -->
         <ul id="taskList"></ul>
        
+        <!-- Botones de filtro para las tareas -->
         <div class="filters">
-          
             <button id="allTasks">Todas</button>
             <button id="activeTasks">Activas</button>
             <button id="completedTasks">Completadas</button>
             <button id="clearCompleted">Limpiar Tareas Completadas</button>
         </div>
     </div>
+    <!-- Script JavaScript -->
     <script src="Diseño.js"></script>
 </body>
 </html>
