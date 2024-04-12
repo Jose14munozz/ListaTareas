@@ -117,7 +117,7 @@ li.completed {
     /* Sombra */
     box-shadow: 0 0 10px green; 
     /* Margen izquierdo */
-    margin-left: 45%; 
+    margin-left: 10%; 
 }
 
 /* Estilos del botón para borrar una tarea */
@@ -191,4 +191,50 @@ li.completed {
 #clearCompleted {
     /* Fondo morado */
     background: #b792e7; 
+}
+
+#taskList li span {
+    color: blue;
+    font-weight: bold;
+}
+
+
+.start-date{
+    display: flex;
+    flex-direction: column;
+    /* Ajustar el tamaño del texto */
+    font-size: 14px;
+    /* Cambiar el color del texto */
+    color: #333;
+    /* Cambiar el fondo del campo de entrada */
+    background-color: wheat;
+    /* Añadir un borde */
+    border: 1px solid #ccc;
+    /* Añadir un relleno interno */
+    padding: 5px;
+    /* Añadir bordes redondeados */
+    border-radius: 5px;
+    /* Añadir margen inferior para separar los campos */
+    margin-bottom: 10px;
+    /* Hacer que el cursor sea un puntero al pasar sobre el campo */
+    cursor: pointer;
+}
+
+
+.end-date{
+    cursor: pointer;
+    background-color: wheat;
+    color: #333;
+    font-size: 14px;
+
+    border: 1px solid #ccc;
+}
+
+.custom-date:focus {
+    /* Cambiar el color del borde cuando el campo tiene foco */
+    border-color: #007bff;
+    /* Añadir sombra al campo */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Cambiar el color del texto cuando el campo tiene foco */
+    color: #007bff;
 }

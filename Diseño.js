@@ -24,13 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const li = document.createElement('li');
         // Crear la estructura HTML de una tarea
         li.innerHTML = `
-            <span>${taskText}</span>
-            <button class="complete-btn">Completar</button>
-            <button class="delete-btn">Borrar</button>
-            <i class="fas fa-trash de"></i>
-        `;
-        // Agregar la tarea a la lista
-        taskList.appendChild(li);
+        <span>${taskText}</span>
+        <p>Fecha Inicio</p>
+        <input type="datetime-local" class="start-date" min="00:00" 23:59">
+        <p>Fecha Final</p>
+        <input type="datetime-local" class="end-date" min="00:00" 23:59">
+        <button class="complete-btn">Completar</button>
+        <button class="delete-btn">Borrar</button>
+    `;
+    // Agregar la tarea a la lista
+    taskList.appendChild(li);
+
 
         // Agregar eventos para completar, borrar y editar la tarea
         li.querySelector('.complete-btn').addEventListener('click', function() {
@@ -68,13 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Recorrer cada tarea en la lista y guardar sus detalles
         Array.from(taskList.children).forEach(function(task) {
             const taskText = task.querySelector('span').textContent.trim();
+            const startDate = task.querySelector('.start-date').value;
+            const endDate = task.querySelector('.end-date').value;
             const isCompleted = task.classList.contains('completed');
-            tasks.push({ text: taskText, completed: isCompleted });
+            tasks.push({ text: taskText, startDate: startDate, endDate: endDate, completed: isCompleted });
         });
         // Guardar las tareas como una cadena JSON en el almacenamiento local
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-
     // Función para cargar las tareas desde el almacenamiento local
     function loadTasks() {
         // Obtener las tareas guardadas del almacenamiento local
@@ -90,6 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 completeButton.disabled = true;
                 completeButton.textContent = 'Completed';
             }
+            // Cargar las fechas de inicio y finalización
+            const li = taskList.lastElementChild;
+            li.querySelector('.start-date').value = task.startDate;
+            li.querySelector('.end-date').value = task.endDate;
         });
     }
 
