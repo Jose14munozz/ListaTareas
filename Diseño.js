@@ -26,15 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
         li.innerHTML = `
         <span>${taskText}</span>
         <p>Fecha Inicio</p>
-        <input type="datetime-local" class="start-date" min="00:00" 23:59">
+        <input type="datetime-local" class="start-date" min="00:00" max="23:59">
         <p>Fecha Final</p>
-        <input type="datetime-local" class="end-date" min="00:00" 23:59">
+        <input type="datetime-local" class="end-date" min="00:00" max="23:59">
         <button class="complete-btn">Completar</button>
         <button class="delete-btn">Borrar</button>
-    `;
-    // Agregar la tarea a la lista
-    taskList.appendChild(li);
+        `;
 
+        // Agregar la tarea a la lista
+        taskList.appendChild(li);
+
+        const startDateInput = li.querySelector('.start-date');
+        const endDateInput = li.querySelector('.end-date');
 
         // Agregar eventos para completar, borrar y editar la tarea
         li.querySelector('.complete-btn').addEventListener('click', function() {
@@ -64,6 +67,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 saveTasks(); // Guardar tareas en el almacenamiento local
             }
         });
+
+        // Evento para verificar la validez de las fechas al cambiar la fecha de inicio
+        startDateInput.addEventListener('input', function() {
+            if (endDateInput.value < startDateInput.value) {
+                endDateInput.value = startDateInput.value;
+            }
+        });
+
+        // Evento para verificar la validez de las fechas al cambiar la fecha de finalización
+        endDateInput.addEventListener('input', function() {
+            if (endDateInput.value < startDateInput.value) {
+                endDateInput.value = startDateInput.value;
+            }
+        });
     }
 
     // Función para guardar las tareas en el almacenamiento local
@@ -80,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Guardar las tareas como una cadena JSON en el almacenamiento local
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
+
     // Función para cargar las tareas desde el almacenamiento local
     function loadTasks() {
         // Obtener las tareas guardadas del almacenamiento local
